@@ -22,4 +22,4 @@
 <p class="font-bold">404</p>
 <p>Page not found ¯\_(ツ)_/¯</p>
 <p>Here's a picture of a cat</p>
-<img src={imageUrl} alt="" srcset="">
+<img src={imageUrl} alt="Cat" srcset="">
