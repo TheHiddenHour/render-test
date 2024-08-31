@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "preview",
+			"problemMatcher": [
+				"$eslint-compact"
+			],
+			"label": "npm: preview",
+			"detail": "vite preview"
+		}
+	]
+}
