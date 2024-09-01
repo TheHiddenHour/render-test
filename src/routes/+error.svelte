@@ -23,9 +23,18 @@
 	});
 </script>
 
-<p class="font-bold">404</p>
-<p>Page not found ¯\_(ツ)_/¯</p>
-<p>Here's a picture of a cat</p>
-{#if imageUrl}
-	<img class="w-2/4" src={imageUrl} alt="Cat" srcset=""  />
-{/if}
+<div class="grid gap-4 template-rows justify-center justify-items-center h-screen">
+	<p class="text-white font-bold text-8xl">404 :&lpar;</p>
+	<p class="text-white">Page not found, here's a cat picture</p>
+	{#if imageUrl}
+		<div class="h-1/2 self-center">
+			<img class="h-3/4 object-contain" src={imageUrl} alt="cat" srcset="" />
+		</div>
+	{/if}
+</div>
+
+<style>
+	.template-rows {
+		grid-template-rows: auto auto 1fr;
+	}
+</style>
