@@ -1,5 +1,4 @@
 <script lang="ts">
-	let songTitle: string;
 	let songsJson: any;
 
 	async function searchSong(title: string) {
@@ -22,26 +21,13 @@
 	}
 </script>
 
-<input
-	bind:value={songTitle}
-	class="shadow"
-	placeholder="Song name"
-	type="text"
-	name="song-name"
-	id=""
-/>
-<button
-	on:click={() => searchSong(songTitle)}
-	class="bg-blue-500 hover:bg-blue-700 text-white rounded"
-	type="button">Search Song</button
->
-
-{#if songsJson && songsJson.songs.length < 1}
-	<p>No songs found!</p>
-{:else if songsJson}
-	{#each songsJson.songs as song}
-		<p>{song.title}</p>
-	{/each}
-{:else}
-	<p>Search for a song!</p>
-{/if}
+<div class="grid m-4 h-screen">
+	<div class="grid gap-4 content-center justify-items-start items-center">
+		<p class="text-white text-9xl">ThemeRater</p>
+		<p class="text-white text-2xl">Anime OP ratings</p>
+		<button class="rounded px-4 py-2 text-white hover:bg-ultra-violet bg-african-violet">Get Started</button>
+	</div>
+	<div class="grid col-start-2 justify-center items-center">
+		<img class="" src="menhera.png" alt="" srcset="" />
+	</div>
+</div>
