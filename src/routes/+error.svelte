@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import {page} from '$app/stores'
 
 	let imageUrl: string;
 
@@ -14,7 +15,7 @@
 			const json = await response.json();
 			imageUrl = json[0]['url'];
 		} catch (error: any) {
-			console.log(error.message);
+			throw new Error(error.message);
 		}
 	}
 
@@ -24,8 +25,8 @@
 </script>
 
 <div class="grid gap-4 template-rows justify-center justify-items-center h-screen">
-	<p class="text-white font-bold text-8xl">404 :&lpar;</p>
-	<p class="text-white">An error occurred, here's a cat picture</p>
+	<p class="text-white font-bold text-8xl">{$page.status} :&lpar;</p>
+	<p class="text-white">{$page.error?.message}, here's a cat picture</p>
 	{#if imageUrl}
 		<div class="h-1/2 self-center">
 			<img class="h-3/4 object-contain" src={imageUrl} alt="cat" srcset="" />
