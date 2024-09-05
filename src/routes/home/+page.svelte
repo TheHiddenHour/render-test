@@ -2,7 +2,7 @@
 	import { json } from '@sveltejs/kit';
 
 	let searchTitle: string;
-	let searchJson: any = {};
+	let searchJson: any = { songs: [] };
 
 	async function fetchSongResults(title: string) {
 		const url = `https://api.animethemes.moe/song?include=animethemes.anime&filter[title-like]=%${title}%`;
@@ -41,10 +41,12 @@
 			class="px-4 rounded text-white bg-african-violet hover:bg-ultra-violet">Search</button
 		>
 		<div>
-			{#if searchJson?.songs}
+			{#if searchJson.songs.length > 0}
 				{#each searchJson.songs as item}
-					<a href=""><p class="text-white">{item.title}</p></a>
+					<p class="text-white">{item.title} | {item.animethemes[0].anime.name}</p>
 				{/each}
+			{:else}
+				<p class="text-white">No search results</p>
 			{/if}
 		</div>
 	</div>
